@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { getQt2KMpn } from 'mpn-lookup/mpn.lookup';
+import React, { useState } from "react";
+import { getQt2KMpn } from "mpn-lookup/mpn.lookup";
 
 export default function QTLForm() {
   const [in2KL, setIn2KL] = useState(0);
@@ -15,8 +15,8 @@ export default function QTLForm() {
 
     return (
       <div>
-        <h5 data-testid={'qt2k-mpn-val'}>MPN: {mpn2KList[1]}</h5>
-        <label data-testid={'qt2k-conf-label'} style={{ color: '#61dafb' }}>
+        <h5 data-testid={"qt2k-mpn-val"}>MPN: {mpn2KList[1]}</h5>
+        <label data-testid={"qt2k-conf-label"} style={{ color: "#61dafb" }}>
           95% Confidence Range
         </label>
         <br />
@@ -30,16 +30,16 @@ export default function QTLForm() {
   return (
     <div>
       <label>
-        <label id={'qt2k-title-label'} style={{ color: '#61dafb' }}>
+        <label id={"qt2k-title-label"} style={{ color: "#61dafb" }}>
           QuantiTray2000&reg;
         </label>
         <br />
         <br />
         {/* eslint-disable-next-line max-len */}
-        Enter Large Well Count:{' '}
+        Enter Large Well Count:{" "}
         <input
-          name={'QT2KLinput'}
-          id={'qt2klinput'}
+          name={"QT2KLinput"}
+          id={"qt2klinput"}
           value={in2KL}
           onChange={(e) => setIn2KL(parseInt(e.target.value))}
           type="number"
@@ -48,10 +48,10 @@ export default function QTLForm() {
         />
         <br />
         {/* eslint-disable-next-line max-len */}
-        Enter Small Well Count:{' '}
+        Enter Small Well Count:{" "}
         <input
-          name={'QT2KSinput'}
-          id={'qt2ksinput'}
+          name={"QT2KSinput"}
+          id={"qt2ksinput"}
           value={in2KS}
           onChange={(e) => setIn2KS(parseInt(e.target.value))}
           type="number"

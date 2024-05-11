@@ -1,11 +1,11 @@
-import SideNav from '@/app/ui/mpn-lookup/sidenav';
-import { Metadata } from 'next';
+import SideNav from "@/app/ui/mpn-lookup/sidenav";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | MPN Lookup',
-    default: 'MPN Lookup',
-  }
+    template: "%s | MPN Lookup",
+    default: "MPN Lookup",
+  },
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

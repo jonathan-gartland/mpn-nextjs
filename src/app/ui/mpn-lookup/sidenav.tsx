@@ -1,6 +1,4 @@
-
-import NavLinks from '@/app/ui/mpn-lookup/nav-links';
-
+import NavLinks from "@/app/ui/mpn-lookup/nav-links";
 
 export default function SideNav() {
   return (

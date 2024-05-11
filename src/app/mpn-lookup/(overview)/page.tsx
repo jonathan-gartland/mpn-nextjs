@@ -1,5 +1,5 @@
-import { lusitana } from '../../ui/fonts';
-import { Suspense } from 'react';
+import { lusitana } from "../../ui/fonts";
+import { Suspense } from "react";
 
 export default async function Page() {
   return (
@@ -12,9 +12,10 @@ export default async function Page() {
           </h1>
           <br />
           <p>
-            An automated lookup app so you don&apos;t need the relevant PDF&apos;s for the following water quality test systems:
-            <br/>
-            <br/>
+            An automated lookup app so you don&apos;t need the relevant
+            PDF&apos;s for the following water quality test systems:
+            <br />
+            <br />
             <div className="grid">
               <div>
                 <h1>QuantiTray&reg;</h1>

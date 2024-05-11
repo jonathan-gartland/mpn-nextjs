@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { getQtLegio } from 'mpn-lookup/mpn.lookup';
+import React, { useState } from "react";
+import { getQtLegio } from "mpn-lookup/mpn.lookup";
 
 export default function QT2KForm() {
   const [inLarge, setInLarge] = useState(0);
@@ -26,34 +26,33 @@ export default function QT2KForm() {
 
   return (
     <label>
-      <label id={'qtl-title-label'} style={{ color: '#61dafb' }}>
+      <label id={"qtl-title-label"} style={{ color: "#61dafb" }}>
         QuantiTray&reg; Legiolert
       </label>
       <br />
       <br />
-      Enter Large Well Count:{' '}
+      Enter Large Well Count:{" "}
       <input
         value={inLarge}
         onChange={(e) => setInLarge(parseInt(e.target.value))}
         type="number"
         min="0"
         max="6"
-        style={{ marginLeft: '10px' }}
-        width={'34px'}
+        style={{ marginLeft: "10px" }}
+        width={"34px"}
       />
       <br />
-      Enter Small Well Count:{' '}
+      Enter Small Well Count:{" "}
       <input
         value={inSmall}
         onChange={(e) => setInSmall(parseInt(e.target.value))}
         type="number"
         min="0"
         max="90"
-        style={{ marginLeft: '10px' }}
+        style={{ marginLeft: "10px" }}
       />
       <br />
       {<div>{mpnL(inSmall, inLarge)}</div>}
     </label>
   );
 }
-
