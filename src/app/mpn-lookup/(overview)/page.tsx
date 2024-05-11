@@ -12,11 +12,20 @@ export default async function Page() {
           </h1>
           <br />
           <p>
-            An automated lookup so you don't need the relevant PDF's for the following water quality test systems:
+            An automated lookup app so you don&apos;t need the relevant PDF&apos;s for the following water quality test systems:
             <br/>
-            <br/> QuantiTray&reg;
-            <br/>QuantiTray2000&reg;
-            <br/>and Legiolert&reg;
+            <br/>
+            <div className="grid">
+              <div>
+                <h1>QuantiTray&reg;</h1>
+              </div>
+              <div>
+                <h1>QuantiTray2000&reg;</h1>
+              </div>
+              <div>
+                <h1>Legiolert&reg;</h1>
+              </div>
+            </div>
           </p>
         </div>
         <div></div>
