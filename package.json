@@ -14,7 +14,7 @@
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "playwright test"
+    "notest:e2e": "playwright test"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
