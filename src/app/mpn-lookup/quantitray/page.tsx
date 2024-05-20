@@ -21,9 +21,9 @@ export default function Mpn() {
     }
 
     return (
-      <div className="grid grid-cols-2 gap-1 mb-6 w-24">
+      <div className="grid grid-cols-2 gap-6 mb-6 w-24 text-red-600 text-xl">
         <div>MPN:</div>
-        <div>{mpnList[1]}</div>
+        <div className="text-red-600 font-bold text-xl">{mpnList[1]}</div>
       </div>
     );
   }
@@ -33,14 +33,6 @@ export default function Mpn() {
     if (inCount >= 0 && inCount <= 51) {
       mpnList = getQtMpn(inCount);
     }
-    // if (mpnList.length === 0) {
-    //   return (
-    //     <label data-testid={"empty-value-label"}>
-    //       Enter valid value please!
-    //     </label>
-    //   );
-    // }
-
     return (
       <div className="grid grid-cols-2 gap-4 mb-6 w-24">
         <div>High: </div>
@@ -52,13 +44,13 @@ export default function Mpn() {
   }
 
   return (
-    <div className="w-1/2">
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+    <div className={`${lusitana.className} w-1/2`}>
+      <h1 className="mb-4 text-xl md:text-2xl text-blue-600">
         QuantiTray&reg; MPN
       </h1>
       <br />
       <div className="grid grid-cols-2 gap-4 mb-6 ">
-        <div>
+        <div className="text-xl">
           Enter Positive Well Count:&emsp;
           <input
             className="rounded-md w-12 px-1"
@@ -73,10 +65,10 @@ export default function Mpn() {
           />
         </div>
         {<div>{mpn(inCount)}</div>}
-        <div>
+        <div className="text-xl">
           <label data-testid={"qt-conf-label"}>95% Confidence Range</label>
         </div>
-        {<div>{mpn95conf(inCount)}</div>}
+        {<div className="text-lg">{mpn95conf(inCount)}</div>}
       </div>
     </div>
   );
