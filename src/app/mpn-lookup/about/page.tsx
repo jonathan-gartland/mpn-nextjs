@@ -50,7 +50,7 @@ export default function AboutForm() {
             >
               QuantiTray2000&reg;
             </a>
-            , which is the largest one.
+            , which is the largest PDF table.
           </p>
           <br />
           <p>
