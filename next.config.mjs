@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/mpn-lookup",
+        destination: "/mpn-lookup/",
         permanent: true,
       },
     ];
