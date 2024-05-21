@@ -4,30 +4,22 @@ import { Suspense } from "react";
 export default async function Page() {
   return (
     <main>
-      <div className="grid gap-6 grid-cols-1">
-        <div></div>
+      <div className={`${lusitana.className} w-1/2 text-lg`}>
         <div>
-          <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-            MPN Lookup
-          </h1>
+          <h1 className={`text-xl md:text-2xl text-blue-600`}>MPN Lookup</h1>
           <br />
-          <p>
-            An automated lookup app so you don&apos;t need the relevant
-            PDF&apos;s for the following water quality test systems:
-            <br />
-            <br />
-            <div className="grid">
-              <div>
-                <h1>QuantiTray&reg;</h1>
-              </div>
-              <div>
-                <h1>QuantiTray2000&reg;</h1>
-              </div>
-              <div>
-                <h1>Legiolert&reg;</h1>
-              </div>
-            </div>
+          <p className="text-lg">
+            A simple, automated lookup application created so one need not to
+            have to rely on the relevant associated PDF&apos;s for finding the
+            Most Probable Number for the sample used when using the following
+            test systems:
           </p>
+          <br />
+          <div className="grid grid-cols-3 gap-5 text-xl text-blue-600">
+            <div className="px-20">QuantiTray&reg;</div>
+            <div>QuantiTray2000&reg;</div>
+            <div>Legiolert&reg;</div>
+          </div>
         </div>
         <div></div>
       </div>
