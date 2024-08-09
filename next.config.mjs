@@ -9,6 +9,11 @@ const nextConfig = {
       },
     ];
   },
+  output: "export",
+  basePath: "/mpn-nextjs",
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
