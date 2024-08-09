@@ -1,5 +1,6 @@
 import { lusitana } from "../../ui/fonts";
 import { Suspense } from "react";
+import Link from "next/link";
 
 export default async function Page() {
   return (
@@ -14,11 +15,16 @@ export default async function Page() {
             Most Probable Number for the sample used when using the following
             test systems:
           </p>
-          <br />
-          <div className="grid grid-cols-3 gap-5 text-xl text-blue-600">
-            <div className="px-20">QuantiTray&reg;</div>
-            <div>QuantiTray2000&reg;</div>
-            <div>Legiolert&reg;</div>
+          <div className="grid grid-cols-1 text-xl text-blue-600">
+            <div className="px-20">
+              <Link href="/mpn-lookup/quantitray">QuantiTray&reg;</Link>
+            </div>
+            <div className="px-20">
+              <Link href="/mpn-lookup/quantitray2000">QuantiTray2000&reg;</Link>
+            </div>
+            <div className="px-20">
+              <Link href="/mpn-lookup/legiolert">Legiolert&reg;</Link>
+            </div>
           </div>
         </div>
         <div></div>
