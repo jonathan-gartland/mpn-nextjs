@@ -55,8 +55,8 @@ export default function AboutForm() {
           <br />
           <p>
             Allegedly created to be helpful in the tedious process of looking up
-            the MPN related to positive flourescing cells in an incubated
-            sample, the{" "}
+            the MPN related to positive flourecing cells in an incubated sample,
+            the{" "}
             <a
               data-testid={"mpngen"}
               style={{ color: "teal" }}
@@ -109,7 +109,7 @@ export default function AboutForm() {
             This particular NextJS app is simply a demo using the library to
             show how it could be implemented in a web app. I wanted more
             practice using React and NextJS and writing tests for such
-            aplications; this seemed like an easy task to do it with. I found
+            applications; this seemed like an easy task to do it with. I found
             NextJS to be fairly easy to use, and I&apos;m probably going to
             create native app versions of this to get more practice using the
             NextJS framework.
