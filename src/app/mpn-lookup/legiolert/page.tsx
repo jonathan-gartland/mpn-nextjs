@@ -4,26 +4,27 @@ import React, { useState } from "react";
 import { getQtLegio } from "mpn-lookup/mpn.lookup";
 import { lusitana } from "@/app/ui/fonts";
 
+const MpnL: React.FC<{ inSmall: number; inLarge: number }> = ({
+  inSmall,
+  inLarge,
+}) => {
+  let mpnLList: any =
+    inLarge >= 0 && inSmall >= 0 && inLarge <= 6 && inSmall <= 90
+      ? getQtLegio(inSmall, inLarge)
+      : [];
+
+  let text = mpnLList.length === 0 ? "Enter valid value please!" : "MPN:";
+
+  return (
+    <div className="text-red-600 font-bold text-xl">
+      {text} &emsp;&emsp;{mpnLList.length !== 0 && mpnLList}
+    </div>
+  );
+};
+
 export default function QT2KForm() {
   const [inLarge, setInLarge] = useState(0);
   const [inSmall, setInSmall] = useState(0);
-
-  function mpnL(inSmall: number, inLarge: number) {
-    let mpnLList: any = [];
-
-    if (inLarge >= 0 && inSmall >= 0 && inLarge <= 6 && inSmall <= 90) {
-      mpnLList = getQtLegio(inSmall, inLarge);
-    }
-    if (mpnLList.length === 0) {
-      return <h3>Enter valid value please!</h3>;
-    }
-
-    return (
-      <div className="text-red-600 font-bold text-xl">
-        MPN:&emsp;&emsp;{mpnLList}
-      </div>
-    );
-  }
 
   return (
     <div className={`${lusitana.className} w-1/2`}>
@@ -60,7 +61,7 @@ export default function QT2KForm() {
           </div>
         </div>
       </div>
-      {<div>{mpnL(inSmall, inLarge)}</div>}
+      <MpnL inLarge={inLarge} inSmall={inSmall} />
     </div>
   );
 }
