@@ -1,7 +1,7 @@
 "use client";
 
 import { getQtMpn } from "mpn-lookup/mpn.lookup";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { lusitana } from "@/app/ui/fonts";
 
 export default function Mpn() {
@@ -23,7 +23,7 @@ export default function Mpn() {
     return (
       <div className="grid grid-cols-2 gap-6 mb-6 w-24 text-red-600 text-xl">
         <div>MPN:</div>
-        <div className="text-red-600 font-bold text-xl">{mpnList[1]}</div>
+        <div className="text-red-600 font-bold text-xl">{mpnList[0]}</div>
       </div>
     );
   }
@@ -38,7 +38,7 @@ export default function Mpn() {
         <div>High: </div>
         <div>{mpnList[2]}</div>
         <div>Low:</div>
-        <div>{mpnList[0]}</div>
+        <div>{mpnList[1]}</div>
       </div>
     );
   }
