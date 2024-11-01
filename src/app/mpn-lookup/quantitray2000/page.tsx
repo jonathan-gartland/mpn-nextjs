@@ -15,11 +15,14 @@ export default function QTLForm() {
     }
 
     return (
-      <div className="grid grid-cols-2 gap-6 mb-6 w-24 text-red-600 text-xl">
+      <div
+        style={{ position: "relative", left: 50, top: -25 }}
+        className="grid grid-cols-2 gap-6 mb-6 text-red-600 text-xl"
+      >
         <div>MPN:</div>
         <div
           className="text-red-600 font-bold text-xl"
-          style={{ position: "relative", left: 170 }}
+          style={{ position: "relative", right: 220 }}
         >
           {mpn2KList && (mpn2KList[0] === "<1" || mpn2KList[0] === ">2419.6")
             ? mpn2KList[0] === "<1"
@@ -54,42 +57,71 @@ export default function QTLForm() {
 
   return (
     <div className={`${lusitana.className} w-1/2`}>
-      <h1 className="mb-4 text-xl md:text-2xl text-blue-600">
+      <h1
+        style={{ position: "relative", top: 10, left: 20 }}
+        className="mb-4 text-xl md:text-2xl text-blue-600"
+      >
         QuantiTray2000&reg; MPN
       </h1>
       <br />
-      <div className="grid grid-cols-1 gap-4 mb-6 text-blue-600">
-        <div className={"text-xl"}>
-          <div>
-            Enter Large Well Count:&emsp;
-            <input
-              className="rounded-md w-12 px-1"
-              name={"QT2KLinput"}
-              id={"qt2klinput"}
-              value={in2KL}
-              onChange={(e) => setIn2KL(parseInt(e.target.value))}
-              type="number"
-              min="0"
-              max="49"
-            />
+      <div className="text-xl grid grid-cols-1 mb-6 text-blue-600">
+        <div
+          style={{
+            position: "relative",
+            left: 30,
+            top: -30,
+            paddingBottom: 10,
+          }}
+        >
+          Enter Positive Well Count:
+        </div>
+        <div>
+          <div
+            style={{
+              position: "relative",
+              left: 20,
+              top: -30,
+            }}
+            className="text-lg grid grid-cols-2"
+          >
+            <div>
+              Large:&emsp;
+              <input
+                className="rounded-md w-12 px-1"
+                name={"QT2KLinput"}
+                id={"qt2klinput"}
+                value={in2KL}
+                onChange={(e) => setIn2KL(parseInt(e.target.value))}
+                type="number"
+                min="0"
+                max="49"
+              />
+            </div>
+            <div style={{ position: "relative", right: 220 }}>
+              Small:&emsp;
+              <input
+                className="rounded-md w-12 px-1"
+                name={"QT2KSinput"}
+                id={"qt2ksinput"}
+                value={in2KS}
+                onChange={(e) => setIn2KS(parseInt(e.target.value))}
+                type="number"
+                min="0"
+                max="48"
+              />
+            </div>
           </div>
-          <div>
-            Enter Small Well Count:&emsp;
-            <input
-              className="rounded-md w-12 px-1"
-              name={"QT2KSinput"}
-              id={"qt2ksinput"}
-              value={in2KS}
-              onChange={(e) => setIn2KS(parseInt(e.target.value))}
-              type="number"
-              min="0"
-              max="48"
-            />
-          </div>
-          <div style={{ paddingTop: 20 }}>{mpn2K(in2KL, in2KS)}</div>
-          <div className="text-xl">
-            <label data-testid={"qt-conf-label"}>95% Confidence Range</label>
-            <div className="text-lg">{mpn2K95conf(in2KL, in2KS)}</div>
+          <div style={{ paddingTop: 5 }}>{mpn2K(in2KL, in2KS)}</div>
+          <div className="text-xl" style={{ position: "relative", left: 50 }}>
+            <label
+              style={{ position: "relative", top: -40 }}
+              data-testid={"qt-conf-label"}
+            >
+              95% Confidence Range
+            </label>
+            <div style={{ position: "relative", top: -40 }} className="text-lg">
+              {mpn2K95conf(in2KL, in2KS)}
+            </div>
           </div>
         </div>
       </div>
