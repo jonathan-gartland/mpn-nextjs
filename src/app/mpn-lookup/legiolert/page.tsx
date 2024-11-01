@@ -16,11 +16,21 @@ const MpnL: React.FC<{ inSmall: number; inLarge: number }> = ({
   let text = mpnLList.length === 0 ? "Enter valid value please!" : "MPN:";
 
   return (
-    <div className="text-red-600 font-bold text-xl">
-      {text}{" "}
-      <span style={{ position: "relative", left: 180 }}>
-        {mpnLList.length !== 0 && mpnLList}
-      </span>
+    <div
+      style={{ position: "relative", left: 0, top: -40 }}
+      className="grid grid-cols-2 mb-6 text-red-600 text-xl"
+    >
+      {text}
+      <div
+        className="text-red-600 font-bold text-xl"
+        style={{ position: "relative", right: 140 }}
+      >
+        {mpnLList && (mpnLList === "<1" || mpnLList === ">2272.6")
+          ? mpnLList === "<1"
+            ? "< 1"
+            : "> 2272.6"
+          : mpnLList}
+      </div>
     </div>
   );
 };
@@ -31,11 +41,17 @@ export default function QT2KForm() {
 
   return (
     <div className={`${lusitana.className} w-1/2`}>
-      <h1 className="mb-4 text-xl md:text-2xl text-blue-600">
-        QuantiTray&reg; Legiolert MPN
+      <h1
+        style={{ position: "relative", top: 0, left: 60 }}
+        className="mb-4 text-xl md:text-2xl text-blue-600"
+      >
+        Legiolert MPN
       </h1>
       <br />
-      <div className="grid grid-cols-2 gap-4 mb-6 text-blue-600">
+      <div
+        style={{ position: "relative", left: 0, top: -30 }}
+        className="grid grid-cols-2 gap-4 mb-6 text-blue-600"
+      >
         <div>
           <div className="text-xl">
             Enter Large Well Count:&emsp;
