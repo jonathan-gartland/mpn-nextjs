@@ -17,7 +17,10 @@ const MpnL: React.FC<{ inSmall: number; inLarge: number }> = ({
 
   return (
     <div className="text-red-600 font-bold text-xl">
-      {text} &emsp;&emsp;{mpnLList.length !== 0 && mpnLList}
+      {text}{" "}
+      <span style={{ position: "relative", left: 180 }}>
+        {mpnLList.length !== 0 && mpnLList}
+      </span>
     </div>
   );
 };
@@ -32,7 +35,7 @@ export default function QT2KForm() {
         QuantiTray&reg; Legiolert MPN
       </h1>
       <br />
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-2 gap-4 mb-6 text-blue-600">
         <div>
           <div className="text-xl">
             Enter Large Well Count:&emsp;

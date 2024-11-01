@@ -1,43 +1,40 @@
 "use client";
 
 import { getQtMpn } from "mpn-lookup/mpn.lookup";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { lusitana } from "@/app/ui/fonts";
-
-const ShowInput: React.FC = () => {
-  const [inCount, setInCount] = useState(0);
-  // @ts-ignore
-  return (
-    <>
-      <div className="text-xl">
-        Enter Positive Well Count:&emsp;
-        <input
-          className="rounded-md w-12 px-1"
-          name={"QTinput"}
-          id={"qtinput"}
-          value={inCount}
-          onChange={(e) => setInCount(parseInt(e.target.value))}
-          type="number"
-          min="0"
-          max="51"
-          data-testid={"qt-input-dataid"}
-        />
-      </div>
-      <ResultView count={inCount} />
-    </>
-  );
-};
+import { Props } from "react-svg";
 
 const ShowMpnVal: React.FC<{ count: number }> = ({ count }) => {
   let mpnList: any[] = count >= 0 && count <= 51 ? getQtMpn(count) : [];
-  let text = mpnList.length === 0 ? "Enter valid value please!" : "MPN:";
+  let mpnText =
+    mpnList.length === 0 ? (
+      <>
+        {/*<div></div>*/}
+        <div
+          className="text-red-600 font-bold text-xl"
+          style={{ position: "relative", left: "-95px" }}
+        >
+          Invalid Count!
+        </div>
+      </>
+    ) : (
+      <div
+        className="text-red-600 font-bold text-xl"
+        style={{ position: "relative", left: "-45px" }}
+      >
+        {mpnList && (mpnList[0] === "<1.0" || mpnList[0] === ">200.5")
+          ? mpnList[0] === "<1.0"
+            ? "< 1.0"
+            : "> 200.5"
+          : mpnList[0]}
+      </div>
+    );
 
   return (
-    <div className="grid grid-cols-2 gap-6 mb-6 w-24 text-red-600 text-xl">
-      <div>{text}</div>
-      <div className="text-red-600 font-bold text-xl">
-        {mpnList && mpnList[0]}
-      </div>
+    <div className="grid grid-cols-2 gap-6 mb-6 text-red-600 text-xl">
+      <div>MPN:</div>
+      <div>{mpnText}</div>
     </div>
   );
 };
@@ -46,50 +43,64 @@ const ConfidenceView: React.FC<{ count: number }> = ({ count }) => {
   let mpnList: any[] = count >= 0 && count <= 51 ? getQtMpn(count) : [];
 
   return (
-    <>
-      <div className="text-xl">
-        <label data-testid={"qt-conf-label"}>95% Confidence Range</label>
-      </div>
-      {
-        <div className="text-lg">
-          <div className="grid grid-cols-2 gap-4 mb-6 w-24">
-            <div>High:</div>
-            <div>{mpnList[2]}</div>
-            <div>Low:</div>
-            <div>{mpnList[1]}</div>
+    <div>
+      <label className="text-xl text-blue-600" data-testid={"qt-conf-label"}>
+        Confidence Range:
+      </label>
+      <div className="text-lg" style={{ paddingTop: "10px" }}>
+        <div className="grid grid-cols-2 gap-4 mb-6 w-30 text-blue-600">
+          <div>95% High:</div>
+          <div style={{ position: "relative", left: "-40px" }}>
+            {mpnList[2] === "infinite" ? "Infinite" : mpnList[2]}
+          </div>
+          <div>95% Low:</div>
+          <div style={{ position: "relative", left: "-40px" }}>
+            {mpnList[1]}
           </div>
         </div>
-      }
-    </>
-  );
-};
-const ResultView: React.FC<{ count: number }> = ({ count }) => {
-  return (
-    <>
-      <ShowMpnVal count={count} />
-      <ConfidenceView count={count} />
-    </>
-  );
-};
-
-const TitleView: React.FC = () => {
-  return (
-    <>
-      <h1 className="mb-4 text-xl md:text-2xl text-blue-600">
-        QuantiTray&reg; MPN
-      </h1>
-      <br />
-    </>
-  );
-};
-
-export default function Mpn() {
-  return (
-    <div className={`${lusitana.className} w-1/2`}>
-      <TitleView />
-      <div className="grid grid-cols-2 gap-4 mb-6 ">
-        <ShowInput />
       </div>
     </div>
   );
+};
+
+const QuantiTrayMpnC: React.FC<{ testType: string }> = ({ testType }) => {
+  const [inCount, setInCount] = useState(0);
+  return (
+    <>
+      <div
+        className={`${lusitana.className} grid grid-cols-2 gap-4 mb-6 w-1/2`}
+      >
+        <h1
+          className="mb-4 text-xl md:text-2xl text-blue-600"
+          style={{ alignContent: "center", marginLeft: 25 }}
+        >
+          {`${testType}`}&reg; MPN
+        </h1>
+        <br />
+        <div className="text-xl text-blue-600">
+          Positive Well Count:&emsp;
+          <input
+            className="rounded-md w-12 px-1"
+            name={"QTinput"}
+            id={"qtinput"}
+            value={inCount}
+            onChange={(e) => setInCount(parseInt(e.target.value))}
+            type="number"
+            min="0"
+            max="51"
+            data-testid={"qt-input-dataid"}
+            style={{ position: "relative", left: "15px" }}
+          />
+        </div>
+        <div>{}</div>
+        <ShowMpnVal count={inCount} />
+        <div>{}</div>
+        <ConfidenceView count={inCount} />
+      </div>
+    </>
+  );
+};
+
+export default function QuantiTrayMpn() {
+  return <QuantiTrayMpnC testType={"QuantiTray"} />;
 }

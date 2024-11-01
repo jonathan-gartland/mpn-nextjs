@@ -17,7 +17,16 @@ export default function QTLForm() {
     return (
       <div className="grid grid-cols-2 gap-6 mb-6 w-24 text-red-600 text-xl">
         <div>MPN:</div>
-        <div className="text-red-600 font-bold text-xl">{mpn2KList[1]}</div>
+        <div
+          className="text-red-600 font-bold text-xl"
+          style={{ position: "relative", left: 170 }}
+        >
+          {mpn2KList && (mpn2KList[0] === "<1" || mpn2KList[0] === ">2419.6")
+            ? mpn2KList[0] === "<1"
+              ? "< 1"
+              : ">2419.6"
+            : mpn2KList[0]}
+        </div>
       </div>
     );
   }
@@ -29,11 +38,16 @@ export default function QTLForm() {
     }
 
     return (
-      <div className="grid grid-cols-2 gap-4 mb-6 w-24">
+      <div
+        style={{ position: "relative", left: 15 }}
+        className="grid grid-cols-4 gap-4 mb-6 w-24"
+      >
         <div>High: </div>
-        <div>{mpn2KList[2]}</div>
-        <div>Low:</div>
-        <div>{mpn2KList[0]}</div>
+        <div style={{ position: "relative", left: 20 }}>
+          {mpn2KList[2] === "infinite" ? "Infinite" : mpn2KList[2]}
+        </div>
+        <div style={{ position: "relative", left: 40 }}>Low:</div>
+        <div style={{ position: "relative", left: 60 }}>{mpn2KList[1]}</div>
       </div>
     );
   }
@@ -44,7 +58,7 @@ export default function QTLForm() {
         QuantiTray2000&reg; MPN
       </h1>
       <br />
-      <div className="grid grid-cols-2 gap-4 mb-6 ">
+      <div className="grid grid-cols-1 gap-4 mb-6 text-blue-600">
         <div className={"text-xl"}>
           <div>
             Enter Large Well Count:&emsp;
@@ -72,12 +86,12 @@ export default function QTLForm() {
               max="48"
             />
           </div>
+          <div style={{ paddingTop: 20 }}>{mpn2K(in2KL, in2KS)}</div>
+          <div className="text-xl">
+            <label data-testid={"qt-conf-label"}>95% Confidence Range</label>
+            <div className="text-lg">{mpn2K95conf(in2KL, in2KS)}</div>
+          </div>
         </div>
-        <div>{mpn2K(in2KL, in2KS)}</div>
-        <div className="text-xl">
-          <label data-testid={"qt-conf-label"}>95% Confidence Range</label>
-        </div>
-        {<div className="text-lg">{mpn2K95conf(in2KL, in2KS)}</div>}
       </div>
     </div>
   );
