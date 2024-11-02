@@ -18,12 +18,12 @@ const MpnL: React.FC<{ inSmall: number; inLarge: number }> = ({
   return (
     <div
       style={{ position: "relative", left: 0, top: -40 }}
-      className="grid grid-cols-2 mb-6 text-red-600 text-xl"
+      className="grid grid-cols-2 mb-6 text-red-600 text-lg"
     >
       {text}
       <div
-        className="text-red-600 font-bold text-xl"
-        style={{ position: "relative", right: 140 }}
+        className="text-red-600 font-bold text-lg"
+        style={{ position: "relative", left: 70 }}
       >
         {mpnLList && (mpnLList === "<1" || mpnLList === ">2272.6")
           ? mpnLList === "<1"
@@ -40,21 +40,31 @@ export default function QT2KForm() {
   const [inSmall, setInSmall] = useState(0);
 
   return (
-    <div className={`${lusitana.className} w-1/2`}>
+    <div className={`${lusitana.className}`}>
       <h1
-        style={{ position: "relative", top: 0, left: 60 }}
-        className="mb-4 text-xl md:text-2xl text-blue-600"
+        style={{ position: "relative", top: 0, left: 0, paddingBottom: 10 }}
+        className="mb-4 text-lg md:text-2xl text-blue-600"
       >
         Legiolert MPN
       </h1>
-      <br />
+
       <div
-        style={{ position: "relative", left: 0, top: -30 }}
-        className="grid grid-cols-2 gap-4 mb-6 text-blue-600"
+        style={{ position: "relative", left: 0, top: -20 }}
+        className="grid grid-cols-1 mb-6 text-blue-600"
       >
-        <div>
-          <div className="text-xl">
-            Enter Large Well Count:&emsp;
+        <div
+          style={{
+            position: "relative",
+            left: 0,
+            top: 0,
+            paddingBottom: 10,
+          }}
+        >
+          Enter Positive Well Counts:
+        </div>
+        <div className="grid grid-cols-2 text-lg">
+          <div>
+            Large
             <input
               className="rounded-md w-12 px-1"
               value={inLarge}
@@ -66,8 +76,8 @@ export default function QT2KForm() {
               width={"34px"}
             />
           </div>
-          <div className="text-xl">
-            Enter Small Well Count:&emsp;
+          <div>
+            Small&emsp;
             <input
               className="rounded-md w-12 px-1"
               value={inSmall}
@@ -75,7 +85,7 @@ export default function QT2KForm() {
               type="number"
               min="0"
               max="90"
-              style={{ marginLeft: "10px" }}
+              style={{ marginLeft: "0px" }}
             />
           </div>
         </div>

@@ -11,7 +11,7 @@ const ShowMpnVal: React.FC<{ count: number }> = ({ count }) => {
     mpnList.length === 0 ? (
       <div>
         <div
-          className="text-red-600 font-bold text-xl"
+          className="text-red-600 font-bold text-lg"
           style={{ position: "relative", left: "-95px" }}
         >
           Invalid Count!
@@ -19,8 +19,8 @@ const ShowMpnVal: React.FC<{ count: number }> = ({ count }) => {
       </div>
     ) : (
       <div
-        className="text-red-600 font-bold text-xl"
-        style={{ position: "relative", right: "30px" }}
+        className="text-red-600 font-bold text-lg"
+        style={{ position: "relative", left: 210 }}
       >
         {mpnList && (mpnList[0] === "<1.0" || mpnList[0] === ">200.5")
           ? mpnList[0] === "<1.0"
@@ -33,11 +33,11 @@ const ShowMpnVal: React.FC<{ count: number }> = ({ count }) => {
   return (
     <div
       style={{ position: "relative", left: 0, top: -25 }}
-      className="grid grid-cols-2 gap-6 mb-6 text-red-600 text-xl"
+      className="grid grid-cols-2 gap-6 mb-6 text-red-600 text-lg"
     >
       <div>MPN:</div>
       <div
-        className="text-red-600 font-bold text-xl"
+        className="text-red-600 font-bold text-lg"
         style={{ position: "relative", right: 160 }}
       >
         {mpnText}
@@ -53,7 +53,7 @@ const ConfidenceView: React.FC<{ count: number }> = ({ count }) => {
     <div style={{ position: "relative", top: -60 }}>
       <label
         style={{ alignContent: "center", marginLeft: 25 }}
-        className="text-xl text-blue-600"
+        className="text-lg text-blue-600"
         data-testid={"qt-conf-label"}
       >
         95% Confidence Range:
@@ -79,18 +79,16 @@ const QuantiTrayMpnC: React.FC<{ testType: string }> = ({ testType }) => {
   const [inCount, setInCount] = useState(0);
   return (
     <>
-      <div
-        className={`${lusitana.className} grid grid-cols-1 gap-4 mb-6 w-1/2`}
-      >
+      <div className={`${lusitana.className} grid grid-cols-1 gap-4 mb-6 `}>
         <h1
-          className="mb-4 text-xl md:text-2xl text-blue-600"
+          className="mb-4 text-lg md:text-2xl text-blue-600"
           style={{ alignContent: "center", marginLeft: 25 }}
         >
           {`${testType}`}&reg; MPN
         </h1>
         <div
           style={{ position: "relative", top: -20 }}
-          className="text-xl text-blue-600"
+          className="text-lg text-blue-600"
         >
           Positive Well Count:&emsp;
           <input

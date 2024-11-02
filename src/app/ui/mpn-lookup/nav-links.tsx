@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const links = [
-  { name: "Home", href: "/mpn-lookup" },
+  { name: "MPN Lookup", href: "/mpn-lookup" },
   { name: "QuantiTray® MPN", href: "/mpn-lookup/quantitray" },
-  { name: "QuantiTray2000®", href: "/mpn-lookup/quantitray2000" },
-  { name: "Legiolert", href: "/mpn-lookup/legiolert" },
+  { name: "QuantiTray2000® MPN", href: "/mpn-lookup/quantitray2000" },
+  { name: "Legiolert MPN", href: "/mpn-lookup/legiolert" },
   { name: "About", href: "/mpn-lookup/about" },
 ];
 
@@ -28,7 +28,9 @@ export default function NavLinks() {
               }
             )}
           >
-            <p className="hidden md:block">{link.name}</p>
+            <p style={{ textAlign: "center" }} className="hidden md:block">
+              {link.name}
+            </p>
           </Link>
         );
       })}

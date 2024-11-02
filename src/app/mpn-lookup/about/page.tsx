@@ -7,7 +7,7 @@ export default function AboutForm() {
   return (
     <>
       <h1
-        className={`${lusitana.className} mb-4 text-xl md:text-2xl text-blue-600`}
+        className={`${lusitana.className} mb-4 text-lg md:text-2xl text-blue-600`}
       >
         About
       </h1>
