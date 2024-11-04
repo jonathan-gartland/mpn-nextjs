@@ -28,9 +28,7 @@ export default function NavLinks() {
               }
             )}
           >
-            <p style={{ textAlign: "center" }} className="hidden md:block">
-              {link.name}
-            </p>
+            <p className="hidden md:block">{link.name}</p>
           </Link>
         );
       })}
