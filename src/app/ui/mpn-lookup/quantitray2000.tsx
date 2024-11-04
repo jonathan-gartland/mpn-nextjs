@@ -58,7 +58,7 @@ export default function QuantiTray2000Mpn() {
   return (
     <div className={`${lusitana.className}`}>
       <h1
-        style={{ position: "relative" }}
+        style={{ position: "relative", textAlign: "center" }}
         className="mb-4 text-lg md:text-2xl text-blue-600"
       >
         QuantiTray2000&reg; MPN
@@ -71,9 +71,9 @@ export default function QuantiTray2000Mpn() {
         <div
           style={{
             position: "relative",
-            left: 5,
+            left: 15,
             top: -40,
-            paddingBottom: 20,
+            paddingBottom: 25,
           }}
         >
           Enter Positive Well Counts:
@@ -116,8 +116,8 @@ export default function QuantiTray2000Mpn() {
               </div>
             </div>
           </div>
-          <div style={{ paddingTop: 5 }}>{mpn2K(in2KL, in2KS)}</div>
-          <div className="text-lg" style={{ position: "relative", left: 5 }}>
+          <div style={{ paddingTop: 10 }}>{mpn2K(in2KL, in2KS)}</div>
+          <div className="text-lg" style={{ position: "relative", left: 15 }}>
             <label
               style={{ position: "relative", top: -80 }}
               data-testid={"qt-conf-label"}

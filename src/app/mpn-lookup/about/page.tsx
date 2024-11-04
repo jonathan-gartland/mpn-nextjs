@@ -27,7 +27,6 @@ export default function AboutForm() {
         className={`${lusitana.className} text-lg  bg-amber-50`}
       >
         <div
-          className="scrollable-div"
           style={{ textAlign: "left", paddingLeft: "15px" }}
           data-testid={"about-text-id"}
         >

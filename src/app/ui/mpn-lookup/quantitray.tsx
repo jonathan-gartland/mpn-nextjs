@@ -38,7 +38,7 @@ const ShowMpnVal: React.FC<{ count: number }> = ({ count }) => {
       <div>MPN:</div>
       <div
         className="text-red-600 font-bold text-lg"
-        style={{ position: "relative", right: 160 }}
+        style={{ position: "relative", right: 175 }}
       >
         {mpnText}
       </div>
@@ -79,7 +79,10 @@ const QuantiTrayMpnC: React.FC<{ testType: string }> = ({ testType }) => {
   const [inCount, setInCount] = useState(0);
   return (
     <>
-      <div className={`${lusitana.className} grid grid-cols-1 gap-4 mb-6 `}>
+      <div
+        className={`${lusitana.className} grid grid-cols-1 gap-4 mb-6 `}
+        style={{ position: "relative", left: 10 }}
+      >
         <h1
           className="mb-4 text-lg md:text-2xl text-blue-600"
           style={{ alignContent: "center", marginLeft: 25 }}
